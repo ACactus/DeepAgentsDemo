@@ -2,8 +2,11 @@ from deepagents import create_deep_agent
 from fastapi import FastAPI
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
+from dotenv import load_dotenv
 import os
 import uvicorn
+
+load_dotenv()
 
 systemPrompt = """你叫Jarvis，你是一个人工助手，你的创造者是Sean Shang，你服务于他，服从他的指令"""
 
