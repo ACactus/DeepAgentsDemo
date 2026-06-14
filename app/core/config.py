@@ -8,6 +8,7 @@ load_dotenv()
 
 @dataclass(frozen=True)
 class Settings:
+    namespace_root: str = os.getenv("NAMESPACE_ROOT", "deepagents")
     app_id: str = os.getenv("APP_ID", "jarvis")
     agent_id: str = os.getenv("AGENT_ID", "main")
     default_user_id: str = os.getenv("USER_ID", "default_user")
@@ -23,6 +24,12 @@ class Settings:
     mongo_db: str = os.getenv("MONGODB_DATABASE", "deepagents")
     mongo_collection: str = os.getenv("MONGODB_COLLECTION", "agent_store")
     mongo_auth_source: str = os.getenv("MONGODB_AUTH_SOURCE", "admin")
+
+    checkpoint_collection: str = os.getenv("MONGODB_CHECKPOINT_COLLECTION", "checkpoints")
+    checkpoint_writes_collection: str = os.getenv(
+        "MONGODB_CHECKPOINT_WRITES_COLLECTION",
+        "checkpoint_writes",
+    )
 
 
 settings = Settings()
